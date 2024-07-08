@@ -1,22 +1,26 @@
 <?php
-// db.php content
+// connection.php content
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "hebrews";
 
+// Create connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle Create
+// Handle Create operation
 if (isset($_POST['create'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
+    // Hash the password before storing it
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    // Insert new user into the database
     $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
     if ($conn->query($sql) === TRUE) {
         $message = "New record created successfully";
@@ -25,21 +29,24 @@ if (isset($_POST['create'])) {
     }
 }
 
-// Handle Read
+// Handle Read operation - fetch all users
 $sql = "SELECT id, name, email FROM users";
 $result = $conn->query($sql);
 
-// Handle Update
+// Handle Update operation
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Check if password is provided and hash it
     if (!empty($password)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        // Update user information with new password
         $sql = "UPDATE users SET name='$name', email='$email', password='$hashedPassword' WHERE id=$id";
     } else {
+        // Update user information without changing the password
         $sql = "UPDATE users SET name='$name', email='$email' WHERE id=$id";
     }
 
@@ -50,10 +57,11 @@ if (isset($_POST['update'])) {
     }
 }
 
-// Handle Delete
+// Handle Delete operation
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
 
+    // Delete user from the database
     $sql = "DELETE FROM users WHERE id=$id";
     if ($conn->query($sql) === TRUE) {
         $message = "Record deleted successfully";
@@ -62,6 +70,7 @@ if (isset($_POST['delete'])) {
     }
 }
 
+// Close the database connection
 $conn->close();
 ?>
 
@@ -69,109 +78,8 @@ $conn->close();
 <html>
 <head>
     <title>CRUD Application</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
-        }
-
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        header ul {
-            padding: 0;
-            list-style: none;
-            float: right;
-            margin-top: 10px;
-        }
-
-        header ul li {
-            display: inline;
-            padding-left: 10px;
-        }
-
-        header #branding {
-            float: left;
-        }
-
-        header #branding h1 {
-            margin: 0;
-        }
-
-        form {
-            background: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-        }
-
-        input[type="text"], input[type="password"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background-color: #333;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #555;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #333;
-            color: white;
-        }
-
-        .message {
-            margin: 20px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-    </style>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <header>
@@ -188,12 +96,14 @@ $conn->close();
 </header>
 <div class="container">
     <?php if (isset($message)): ?>
+        <!-- Display any messages (like success or error messages) -->
         <div class="message">
             <?php echo $message; ?>
         </div>
     <?php endif; ?>
 
     <h2>Create User</h2>
+    <!-- Form for creating a new user -->
     <form method="post" action="">
         Name: <input type="text" name="name" required><br>
         Email: <input type="text" name="email" required><br>
@@ -202,6 +112,7 @@ $conn->close();
     </form>
 
     <h2>Users List</h2>
+    <!-- Table displaying the list of users -->
     <table>
         <tr>
             <th>id</th>
@@ -224,6 +135,7 @@ $conn->close();
     </table>
 
     <h2>Update User</h2>
+    <!-- Form for updating an existing user -->
     <form method="post" action="">
         id: <input type="number" name="id" required><br>
         Name: <input type="text" name="name" required><br>
@@ -233,6 +145,7 @@ $conn->close();
     </form>
 
     <h2>Delete User</h2>
+    <!-- Form for deleting a user -->
     <form method="post" action="">
         id: <input type="number" name="id" required><br>
         <input type="submit" name="delete" value="Delete">
