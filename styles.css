@@ -1,3 +1,4 @@
+/* Basic body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,12 +6,14 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Container to center content */
 .container {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
+/* Header styling */
 header {
     background: #333;
     color: #fff;
@@ -19,6 +22,7 @@ header {
     border-bottom: #77aaff 3px solid;
 }
 
+/* Header link styling */
 header a {
     color: #fff;
     text-decoration: none;
@@ -26,6 +30,7 @@ header a {
     font-size: 16px;
 }
 
+/* Header navigation list styling */
 header ul {
     padding: 0;
     list-style: none;
@@ -33,19 +38,23 @@ header ul {
     margin-top: 10px;
 }
 
+/* Header navigation list item styling */
 header ul li {
     display: inline;
     padding-left: 10px;
 }
 
+/* Branding (logo/title) styling */
 header #branding {
     float: left;
 }
 
+/* Branding (logo/title) text styling */
 header #branding h1 {
     margin: 0;
 }
 
+/* Form styling */
 form {
     background: #fff;
     padding: 20px;
@@ -53,6 +62,7 @@ form {
     border: 1px solid #ccc;
 }
 
+/* Input field styling */
 input[type="text"], input[type="password"], input[type="number"] {
     width: 100%;
     padding: 10px;
@@ -62,6 +72,7 @@ input[type="text"], input[type="password"], input[type="number"] {
     box-sizing: border-box;
 }
 
+/* Submit button styling */
 input[type="submit"] {
     background-color: #333;
     color: white;
@@ -72,27 +83,32 @@ input[type="submit"] {
     width: 100%;
 }
 
+/* Submit button hover effect */
 input[type="submit"]:hover {
     background-color: #555;
 }
 
+/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
+/* Table, table header, and table cell styling */
 table, th, td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
 
+/* Table header background color */
 th {
     background-color: #333;
     color: white;
 }
 
+/* Message box styling */
 .message {
     margin: 20px 0;
     padding: 10px;
