@@ -11,14 +11,8 @@
                 <h1>heBrews</h1>
             </div>
             <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
                 <!-- Sidenav button -->
-                <span class="sidenav-btn" onclick="openNav()">&#9776; Menu</span>
+                <span class="sidenav-btn" onclick="openNav()">&#9776;</span>
             </nav>
         </div>
     </div>
@@ -30,6 +24,7 @@
         <a href="#menu">Menu</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="crud.php">Admin Page</a>
     </div>
 
     <script>
