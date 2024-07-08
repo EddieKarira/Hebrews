@@ -21,7 +21,7 @@ if (isset($_POST['create'])) {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Insert new user into the database
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+    $sql = "INSERT INTO users (Name, Email, Password) VALUES ('$name', '$email', '$password')";
     if ($conn->query($sql) === TRUE) {
         $message = "New record created successfully";
     } else {
