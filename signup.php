@@ -8,7 +8,7 @@
 <body>
     <div class="main-content">
         <h2>Create Your Account</h2>
-        <form method="post" action="db.php">
+        <form method="post" action="connection.php">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
             <label for="email">Email:</label><br>
