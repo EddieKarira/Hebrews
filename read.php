@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'connection.php';
 
 $sql = "SELECT id, name, email FROM users";
 $result = $conn->query($sql);
