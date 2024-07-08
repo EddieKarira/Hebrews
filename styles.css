@@ -115,3 +115,104 @@ th {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
 }
+/* General styles for the body and main content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.header {
+    background: #00274d; /* Dark blue */
+    color: #ffd700; /* Gold */
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ffd700 3px solid;
+}
+
+.header a {
+    color: #ffd700; /* Gold */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.header ul {
+    padding: 0;
+    list-style: none;
+}
+
+.header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+.header h1 {
+    float: left;
+    margin-top: 0;
+}
+
+.sidenav-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Sidenav menu */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #00274d; /* Dark blue */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffd700; /* Gold */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #ffffff;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Main content styles */
+.main-content {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* Footer styles */
+footer {
+    background: #00274d; /* Dark blue */
+    color: #ffd700; /* Gold */
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
