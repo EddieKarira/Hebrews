@@ -4,6 +4,7 @@
 <head>
     <title>heBrews Coffee Shop</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src = "website.js"></script>
 </head>
 <body>
     <!-- Slideshow container -->
