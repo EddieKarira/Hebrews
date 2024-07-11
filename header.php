@@ -8,7 +8,7 @@
     <div class="header">
         <div class="container">
             <div id="branding">
-                <h1>heBrews</h1>
+                <a href = "index.php"><h1>heBrews</h1></a>
             </div>
             <nav>
                 <!-- Sidenav button -->
