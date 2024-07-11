@@ -4,7 +4,22 @@
 <head>
     <title>heBrews Coffee Shop</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src = "website.js"></script>
+    <script>
+        let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+    </script>
 </head>
 <body>
     <!-- Slideshow container -->
@@ -13,19 +28,19 @@
 <!-- Full-width images with number and caption text -->
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="img1.jpg" style="width:100%">
+  <img src="images/img1.jpg" style="width:100%">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="img2.jpg" style="width:100%">
+  <img src="images/img2.jpg" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="img3.jpg" style="width:100%">
+  <img src="images/img3.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
 
